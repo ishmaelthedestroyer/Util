@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   var config = {
     dist: {
       dir: 'dist/',
-      js: 'dist/noUtil.js'
+      js: 'dist/Util.js'
     },
     src: {
       dir: 'src/'
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 
     /** src files */
     src: [
-      'noUtil.js'
+      'Util.js'
     ]
   };
 
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       src: {
         options: {
           // stripBanners: true
-          banner: 'app.service("noUtil", [\n' +
+          banner: 'app.service("Util", [\n' +
           '"$q",\n' +
           'function($q) {\n\n',
           footer: '\n\n}' +

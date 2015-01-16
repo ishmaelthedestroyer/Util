@@ -41,6 +41,15 @@ service.extend = function(a, b) {
 };
 
 /**
+ * similar to `extend` but w/ recursion on objects to preserve missing targets
+ * @param a {Object} target object
+ * @param b {Object} reference object
+ */
+service.deepExtend = function(a, b) {
+  // ...
+};
+
+/**
  * Generate RFC-compliant uuid
  * @return {string}
  */
@@ -290,3 +299,23 @@ service.safeAsync = function(val, timeout, args) {
 
   return deferred.promise;
 };
+
+/**
+ * gets the names of the arguments sent to a function
+ * @param func {Function} the function to check
+ * @returns {string[]}
+ */
+service.getParamNames = function(func) {
+  var
+    STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg,
+    ARGUMENT_NAMES = /([^\s,]+)/g,
+    fnStr = func.toString().replace(STRIP_COMMENTS, ''),
+    result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
+
+  if (result === null) {
+    result = [];
+  }
+
+  return result;
+};
+

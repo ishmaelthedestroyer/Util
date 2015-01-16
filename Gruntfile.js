@@ -41,7 +41,8 @@ module.exports = function(grunt) {
       src: {
         options: {
           // stripBanners: true
-          banner: 'app.service("Util", [\n' +
+          banner: 'angular.module("Util")\n' +
+          '.service("Util", [\n' +
           '"$q",\n' +
           'function($q) {\n\n',
           footer: '\n\n}' +

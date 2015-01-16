@@ -1,4 +1,4 @@
-angular.module("Util")
+angular.module("Util", [])
 .service("Util", [
 "$q",
 function($q) {

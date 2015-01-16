@@ -1,4 +1,4 @@
-# noUtil
+# Util
 
 Javascript utilities.
 

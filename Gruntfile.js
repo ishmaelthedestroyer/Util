@@ -45,7 +45,8 @@ module.exports = function(grunt) {
           '.service("Util", [\n' +
           '"$q",\n' +
           'function($q) {\n\n',
-          footer: '\n\n}' +
+          footer: '\n\n' +
+          'return service;\n\n}' +
           '\n]);'
         },
         src: (function() {

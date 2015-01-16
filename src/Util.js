@@ -46,7 +46,8 @@ service.extend = function(a, b) {
  * @param b {Object} reference object
  */
 service.deepExtend = function(a, b) {
-  // ...
+  if (!b) return a;
+  if (!a) return b;
 };
 
 /**

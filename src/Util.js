@@ -6,11 +6,21 @@ var service = {};
 
 /**
  * Javascript prototypical inheritance
- * @param  {object} ctor
- * @param  {object} superCtor
- * @return {object}
+ * @param  {Function} ctor
+ * @param  {Function} superCtor
+ * @return {Function}
  */
 service.inherits = function(ctor, superCtor) {
+  // copies instance methods & properties
+  ctor.prototype = Object.create(superCtor.prototype);
+
+  // copies class level methods & properties
+  for (var key in superCtor) {
+    ctor[key] = superCtor[key];
+  }
+
+  return ctor;
+  /*
   ctor.super_ = superCtor;
   ctor.prototype = Object.create(superCtor.prototype, {
     constructor: {
@@ -20,6 +30,7 @@ service.inherits = function(ctor, superCtor) {
       configurable: true
     }
   });
+  */
 };
 
 /**

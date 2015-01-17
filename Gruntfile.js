@@ -44,7 +44,8 @@ module.exports = function(grunt) {
           banner: 'angular.module("Util", [])\n' +
           '.service("Util", [\n' +
           '"$q",\n' +
-          'function($q) {\n\n',
+          '"$filter",\n' +
+          'function($q, $filter) {\n\n',
           footer: '\n\n' +
           'return service;\n\n}' +
           '\n]);'

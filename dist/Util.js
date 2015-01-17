@@ -1,7 +1,8 @@
 angular.module("Util", [])
 .service("Util", [
 "$q",
-function($q) {
+"$filter",
+function($q, $filter) {
 
 /**
  * wrapper for utility service to be exposed

@@ -11,26 +11,21 @@ var service = {};
  * @return {Function}
  */
 service.inherits = function(ctor, superCtor) {
-  // copies instance methods & properties
-  ctor.prototype = Object.create(superCtor.prototype);
-
-  // copies class level methods & properties
-  for (var key in superCtor) {
-    ctor[key] = superCtor[key];
-  }
-
-  return ctor;
-  /*
-  ctor.super_ = superCtor;
+  ctor.super_ = superCtor
   ctor.prototype = Object.create(superCtor.prototype, {
     constructor: {
       value: ctor,
       enumerable: false,
-      writeable: true,
+      writable: true,
       configurable: true
     }
   });
-  */
+
+  for (var key in superCtor) {
+    if (superCtor.hasOwnProperty(key)) {
+      ctor[key] = superCtor[key];
+    }
+  }
 };
 
 /**
@@ -330,4 +325,3 @@ service.getParamNames = function(func) {
 
   return result;
 };
-

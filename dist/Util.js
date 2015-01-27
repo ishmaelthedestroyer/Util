@@ -63,6 +63,15 @@ service.deepExtend = function(a, b) {
 };
 
 /**
+ * checks if a string is a valid email
+ * @param input {String} string to check
+ * @returns {Boolean} whether or not the email is valid
+ */
+service.isValidEmail = function(input) {
+  return /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(input);
+};
+
+/**
  * Generate RFC-compliant uuid
  * @return {string}
  */
@@ -155,8 +164,8 @@ service.encodeBase64 = function(input) {
     }
 
     output = output +
-    service._keyStr.charAt(enc1) + service._keyStr.charAt(enc2) +
-    service._keyStr.charAt(enc3) + service._keyStr.charAt(enc4);
+      service._keyStr.charAt(enc1) + service._keyStr.charAt(enc2) +
+      service._keyStr.charAt(enc3) + service._keyStr.charAt(enc4);
   }
 
   return output;

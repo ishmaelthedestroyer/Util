@@ -341,6 +341,33 @@ service.getParamNames = function(func) {
   return result;
 };
 
+/**
+ * transforms a string, replaces all instances of strings with their mapping
+ * @param str {String} string to transform
+ * @param map {Object} key / value mapping of strings to replace
+ * @returns {String}
+ */
+service.mapStrings = function(str, map) {
+  var
+    isDirty = true,
+    ref;
+
+  while (isDirty) {
+    isDirty = false;
+    for (var key in map) {
+      if (map.hasOwnProperty(key)) {
+        ref = str.replace(key, map[key]);
+        if (str !== ref) {
+          str = ref;
+          isDirty = true;
+        }
+      }
+    }
+  }
+
+  return str;
+};
+
 return service;
 
 }

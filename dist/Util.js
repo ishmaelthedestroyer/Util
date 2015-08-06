@@ -16,10 +16,22 @@ var service = {};
  * @return {Boolean}
  */
 service.isJSON = function(obj) {
-  try {
-    JSON.parse(obj);
-  } catch (e) {
+  if (typeof obj === 'boolean') {
     return false;
+  } else if (typeof obj === 'function') {
+    return false;
+  } else if (typeof obj === 'string') {
+    try {
+      JSON.parse(obj);
+    } catch (e) {
+      return false;
+    }
+  } else {
+    try {
+      JSON.parse(JSON.stringify(obj));
+    } catch (e) {
+      return false;
+    }
   }
 
   return true;

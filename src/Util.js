@@ -5,6 +5,30 @@
 var service = {};
 
 /**
+ * checks if an object is valid JSON
+ * @param obj {*} object to check
+ * @return {Boolean}
+ */
+service.isJSON = function(obj) {
+  try {
+    JSON.parse(obj);
+  } catch (e) {
+    return false;
+  }
+
+  return true;
+};
+
+/**
+ * checks if an object is a function
+ * @param obj {*} object to check
+ * @return {Boolean}
+ */
+service.isFunction = function(fn) {
+  return typeof fn === 'function';
+};
+
+/**
  * Javascript prototypical inheritance
  * @param  {Function} ctor
  * @param  {Function} superCtor
